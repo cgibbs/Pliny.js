@@ -74,7 +74,7 @@ function get_water_ingredient() {
 
 function get_random_ingredient() {
   let ing = randInt(1, 6).toString() + " parts ";
-  const ra = randInt(0, 12);
+  const ra = randInt(0, 13);
   if (ra > 9) ing += get_animal_ingredient();
   else if (ra > 6) ing += get_plant_ingredient();
   else if (ra > 3) ing += get_mineral_ingredient();
