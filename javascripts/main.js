@@ -112,7 +112,3 @@ function create_cure() {
 function display_cure() {
   $("#cure")[0].innerHTML = create_cure();
 }
-
-$(document).ready(function() {
-  display_cure();
-});
