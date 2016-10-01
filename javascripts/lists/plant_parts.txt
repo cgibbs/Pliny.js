@@ -1,0 +1,11 @@
+stem
+leaf
+oil
+stamen
+petal
+fruit
+root
+juice
+blossom
+rind of the fruit
+seed
