@@ -96,7 +96,7 @@ function create_recipe() {
 }
 
 function get_prayer() {
-  return "Pray to " + get_greek_mythos().slice(0, -1) + ".";
+  return "Pray to " + get_greek_mythos() + ".";
 }
 
 function create_cure() {
