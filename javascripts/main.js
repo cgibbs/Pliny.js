@@ -1,8 +1,8 @@
 console.log('This would be the main JS file.');
 
-const names = ["animal_parts", "animals", "disorders", "greek_mythos", "greek_names", "inf_diseases",
+const names = ["alloys", "animal_parts", "animals", "disorders", "greek_mythos", "greek_names", "inf_diseases",
         "liquids", "mineral_modifiers", "minerals", "neuro", "part_modifiers", "plant_parts",
-        "plants", "rivers", "seas", "skin_disorders", "springs", "viruses_filtered"]
+        "plants", "rivers", "rusty_items", "seas", "skin_disorders", "springs", "viruses_filtered"]
 
 const lists = {};
 
@@ -15,13 +15,17 @@ names.forEach(name =>
     },
     error:   function() {
       // An error occurred
-      console.log("something died");
+      console.log(name + ".txt could not be found");
     }
   })
 );
 
 function randFromArr(arr) {
-  return arr[Math.floor(Math.random()*arr.length)];
+  let ret = "";
+  while (ret == "") {
+    ret = arr[Math.floor(Math.random()*arr.length)];
+  }
+  return ret;
 }
 
 function randInt(min, max) {
@@ -74,8 +78,10 @@ function get_water_ingredient() {
 
 function get_random_ingredient() {
   let ing = randInt(1, 6).toString() + " parts ";
-  const ra = randInt(0, 13);
-  if (ra > 9) ing += get_animal_ingredient();
+  const ra = randInt(0, 15);
+  if (ra > 13) ing = get_alloy();
+  else if (ra > 12) ing += get_rust();
+  else if (ra > 9) ing += get_animal_ingredient();
   else if (ra > 6) ing += get_plant_ingredient();
   else if (ra > 3) ing += get_mineral_ingredient();
   else if (ra > 1) ing = get_solvent_ingredient();
@@ -97,6 +103,18 @@ function create_recipe() {
 
 function get_prayer() {
   return "Pray to " + get_greek_mythos() + ".";
+}
+
+function get_rust() {
+  return "rust from " + a_an(randFromArr(lists.rusty_items));
+}
+
+function get_alloy() {
+  return randFromArr(lists.alloys)  + " pellets";
+}
+
+function a_an(word) {
+  return "a" + (['a', 'e', 'i', 'o', 'u'].indexOf(word.toLowerCase()) !== -1 ? "n" : "") + " " + word;
 }
 
 function create_cure() {
