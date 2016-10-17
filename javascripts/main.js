@@ -71,7 +71,7 @@ function get_water_ingredient() {
   let ing = randInt(2, 10).toString() + " parts water from the ";
   ra = randInt(0, 2);
   if (ra === 0) ing += "River " + randFromArr(lists.rivers);
-  else if (ra === 1) ing += randFromArr(lists.seas) + " Sea";
+  else if (ra === 1) ing += randFromArr(lists.seas);
   else ing += randFromArr(lists.springs) + " Spring";
   return ing;
 }
